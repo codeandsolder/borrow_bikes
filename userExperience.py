@@ -55,11 +55,10 @@ class CustomerManagementObject:
             raise ValueError
         return self.customerDatabase[ID]
 
-    def register_new_customer(self, newCustomer):
-        if type(newCustomer) is not CustomerObject:
+    def register_new_customer(self, name):
+        if type(name) is not str:
             raise TypeError
-        if newCustomer.customerID:
-            raise ValueError
+        newCustomer = CustomerObject(name=name)
         newCustomer.customerID = self.get_free_ID()
         self.customerDatabase[newCustomer.customerID] = newCustomer
         return newCustomer.customerID
@@ -151,7 +150,7 @@ class GameObject:
 
     def run_customer_registration(self):
         name = input("Enter customer name: ")
-        ID = self.customers.register_new_customer(CustomerObject(name=name))
+        ID = self.customers.register_new_customer(name=name)
         print("Done! Their assigned ID is: {ID}".format(ID=ID))
         input("Press Enter to return to menu.")
 
