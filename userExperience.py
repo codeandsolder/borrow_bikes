@@ -292,7 +292,8 @@ class GameObject:
 
 
 def run_GUI():
-    print("Welcome to the ultra-modern bike rental app, please pretend it's 1980 and this is written in COBOL.")
+    print("Welcome to the ultra-modern bike rental app, please pretend it's 1980 and "
+          "this is written in COBOL of other similar language like PHP.")
     input("Press Enter to start!")
     game = GameObject()
     while True:
